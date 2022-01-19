@@ -1,0 +1,35 @@
+/* Compiled from https://github.com/holywyvern/react-isometric-tilemap/blob/master/src/lib/components/IsometricMap.scss */
+
+.react-isometric-map-wrapper {
+  /* Private variables */
+  --p-ratio: 1.4142;
+  --p-map-width: var(--map-width, 1);
+  --p-map-height: var(--map-height, 1);
+  --p-map-max-dimension: var(--map-max-dimension, var(--p-map-width));
+  --p-tile-size: calc(var(--tile-size, 48) / var(--p-ratio));
+  --p-v-tile-size: var(--tile-size, 48);
+  --p-slab-size: var(--slab-size, 12);
+  --p-size-unit: var(--size-unit, 1px);
+  --p-margin-top: var(--margin-top, 12);
+  --p-margin-left: var(--margin-left, 12);
+  --p-margin-right: var(--margin-right, 12);
+  --p-margin-bottom: var(--margin-bottom, 12);
+  --p-center-y: calc(var(--p-map-max-dimension) * var(--p-tile-size) / 2);
+  --p-map-offset-y: var(--map-offset-y, 0);
+  --p-center-x: calc(
+    (var(--p-map-width) + var(--map-height) - 1) * var(--p-tile-size) / 2
+  );
+  width: calc( var(--p-size-unit) * ( var(--p-v-tile-size) * (var(--p-map-width) + var(--p-map-height) + 5) / 2 ));
+  height: calc( var(--p-size-unit) * ( var(--p-map-offset-y) + var(--p-map-max-dimension) * var(--p-v-tile-size) ));
+}
+
+.react-isometric-map {
+  /* Attributes */
+  width: calc(var(--p-map-width) * var(--p-tile-size) * var(--p-size-unit));
+  height: calc(var(--p-map-height) * var(--p-tile-size) * var(--p-size-unit));
+  display: grid;
+  grid-template-columns: repeat(var(--p-map-width), calc(var(--p-size-unit) * var(--p-tile-size)));
+  grid-template-rows: repeat(var(--p-map-height), calc(var(--p-size-unit) * var(--p-tile-size)));
+  transform: translate(calc(var(--p-size-unit) * (var(--p-tile-size) * 3 - var(--p-tile-size))), calc(var(--p-size-unit) * (var(--p-center-y) + var(--p-map-offset-y)))) rotateX(60deg) rotateZ(45deg);
+  transform-origin: center center;
+}
