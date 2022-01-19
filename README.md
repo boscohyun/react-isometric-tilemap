@@ -6,8 +6,10 @@ React Isometric Tilemap
 [![Latest version][Tag badge]][Deno module]
 [![LGPL 3.0][License badge]](./LICENSE)
 [![Deno Doc (API references)][Deno Doc badge]][Deno Doc]
+[![GitHub Actions][GitHub Actions status badge]][GitHub Actions]
 
-A library for displaying tilemaps and handling events on it.
+A library for displaying tilemaps and handling events on it.  See also
+the [demo app] first!
 
 It was [originally written by Ramiro Rojo][1] in JavaScript.  This project
 forks it and then rewrote it in TypeScript and let it work on Deno and Aleph.js.
@@ -17,6 +19,9 @@ forks it and then rewrote it in TypeScript and let it work on Deno and Aleph.js.
 [License badge]: https://img.shields.io/github/license/boscohyun/react-isometric-tilemap
 [Deno Doc]: https://doc.deno.land/https://deno.land/x/react-isometric-tilemap/mod.ts
 [Deno Doc badge]: https://img.shields.io/badge/api-deno%20doc-blue
+[GitHub Actions]: https://github.com/boscohyun/react-isometric-tilemap/actions/workflows/build.yaml
+[GitHub Actions status badge]: https://github.com/boscohyun/react-isometric-tilemap/actions/workflows/build.yaml/badge.svg
+[demo app]: https://boscohyun.github.io/react-isometric-tilemap/
 [1]: https://github.com/holywyvern/react-isometric-tilemap
 
 
@@ -43,4 +48,4 @@ const MyMap = () => {
 ~~~~
 
 Please refer for the documentation for more details about the components
-provided.
+provided.  See also the source code of the [demo app] in *demo/* directory.

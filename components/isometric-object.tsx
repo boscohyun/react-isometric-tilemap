@@ -22,7 +22,7 @@ export interface IsometricObjectProps {
   /** Extra css classes you want to add into the object */
   readonly className?: string;
   /** extra style you wish to apply into te object */
-  readonly style?: object;
+  readonly style?: React.CSSProperties;
   /** A list of strings, each string having an uri of each frame */
   readonly frames?: string[];
   /** An interval between each frame */
