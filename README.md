@@ -15,9 +15,9 @@ It was [originally written by Ramiro Rojo][1] in JavaScript.  This project
 forks it and then rewrote it in TypeScript and let it work on Deno and Aleph.js.
 
 [Tag badge]: https://img.shields.io/github/v/tag/boscohyun/react-isometric-tilemap
-[Deno module]: https://deno.land/x/react-isometric-tilemap
+[Deno module]: https://deno.land/x/react_isometric_tilemap
 [License badge]: https://img.shields.io/github/license/boscohyun/react-isometric-tilemap
-[Deno Doc]: https://doc.deno.land/https://deno.land/x/react-isometric-tilemap/mod.ts
+[Deno Doc]: https://doc.deno.land/https://deno.land/x/react_isometric_tilemap/mod.ts
 [Deno Doc badge]: https://img.shields.io/badge/api-deno%20doc-blue
 [GitHub Actions]: https://github.com/boscohyun/react-isometric-tilemap/actions/workflows/build.yaml
 [GitHub Actions status badge]: https://github.com/boscohyun/react-isometric-tilemap/actions/workflows/build.yaml/badge.svg
@@ -34,7 +34,7 @@ Import this library in your code:
 // The map is the basic container, the tile is each square
 import IsometricMap, {
   IsometricTile
-} from "https://deno.land/x/react-isometric-tilemap/mod.ts";
+} from "https://deno.land/x/react_isometric_tilemap/mod.ts";
 ~~~~
 
 Now you can create your own map with it:
