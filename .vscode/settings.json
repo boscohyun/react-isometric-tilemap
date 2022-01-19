@@ -1,6 +1,7 @@
 {
   "deno.enable": true,
   "deno.unstable": true,
+  "deno.config": "./demo/Deno.json",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "[typescript]": {
