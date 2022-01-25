@@ -55,6 +55,13 @@ in *demo/* directory.
 Changelog
 ---------
 
+### Version 2.0.0
+
+Released on January 26, 2022.
+
+This release is equivalent 0.2.0, but purposes to *overwrite*
+the mis-tagged previous releases: 0.2.0 and 1.0.0.
+
 ### Version 0.2.0
 
 Released on January 25, 2022.
