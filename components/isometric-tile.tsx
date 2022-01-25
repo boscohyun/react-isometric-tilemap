@@ -22,6 +22,9 @@ export interface TileFrame {
 }
 
 export interface IsometricTileProps {
+  /** Visualize debug-purpose guides */
+  readonly debug?: boolean;
+
   /** The x position of the tile, from 0 to width - 1 */
   readonly x: number;
   /** The y position of the tile, from 0 to height - 1 */
@@ -171,6 +174,7 @@ function renderMiddleWalls(
  */
 export const IsometricTile: React.FC<IsometricTileProps> = (props) => {
   const {
+    debug,
     x,
     y,
     leftZ,
@@ -192,6 +196,7 @@ export const IsometricTile: React.FC<IsometricTileProps> = (props) => {
     "--right-z": rz,
   };
   const classes: string[] = ["react-isometric-tile"];
+  if (debug) classes.push("debug");
   if (className) classes.push(className);
 
   const onFloorClick: MouseEventHandler | undefined =

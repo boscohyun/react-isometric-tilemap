@@ -12,7 +12,7 @@ A library for displaying tilemaps and handling events on it.  See also
 the [demo app] first!
 
 It was [originally written by Ramiro Rojo][1] in JavaScript.  This project
-forks it and then rewrote it in TypeScript and let it work on Deno and Aleph.js.
+forked it and then rewrote it in TypeScript and let it work on Deno & Aleph.js.
 
 [Tag badge]: https://img.shields.io/github/v/tag/boscohyun/react-isometric-tilemap
 [Deno module]: https://deno.land/x/react_isometric_tilemap
@@ -47,5 +47,20 @@ const MyMap = () => {
 };
 ~~~~
 
-Please refer for the documentation for more details about the components
-provided.  See also the source code of the [demo app] in *demo/* directory.
+Please refer for the [documentation][Deno Doc] for more details about
+the components provided.  See also the source code of the [demo app]
+in *demo/* directory.
+
+
+Changelog
+---------
+
+### Version 0.2.0
+
+Released on January 25, 2022.
+
+ -  Added `debug?: boolean` attribute to `IsometricTileProps`.
+
+### Version 0.1.0
+
+Initial release.  Released on January 20, 2022.

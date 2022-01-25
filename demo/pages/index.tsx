@@ -1,4 +1,4 @@
-import React from "https://esm.sh/react@17.0.2";
+import React, { useState } from "https://esm.sh/react@17.0.2";
 import { useRouter } from "https://deno.land/x/aleph@v0.3.0-beta.19/framework/react/mod.ts";
 import { IsometricMap, IsometricObject, IsometricTile } from "../lib/mod.ts";
 import "./index.css";
@@ -111,6 +111,7 @@ const heights = [
 
 const App: React.FC = () => {
   const router = useRouter();
+  const [debug, setDebug] = useState(false);
   const basePath = (router.basePath ?? "/").replace(/\/$/, "");
   const textures1 = {
     floor: basePath + "/floor.png",
@@ -129,6 +130,9 @@ const App: React.FC = () => {
     <div className="app">
       <nav>
         <h1>React Isometric Maps</h1>
+        <label>
+          <input type="checkbox" checked={debug} onClick={() => setDebug(!debug)} />Debug
+        </label>
         <ul>
           <li>
             <a
@@ -159,6 +163,7 @@ const App: React.FC = () => {
             const result = [
               <IsometricTile
                 key={`tile${index}`}
+                debug={debug}
                 x={x}
                 y={y}
                 z={z}

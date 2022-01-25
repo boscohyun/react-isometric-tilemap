@@ -4,48 +4,68 @@
   --p-z: var(--z, 0);
   --p-left-z: var(--left-z, var(--p-z, 0));
   --p-right-z: var(--right-z, var(--p-z, 0));
-  --p-elevation: calc(-1 * var(--z) * var(--p-slab-size) * var(--p-size-unit) * var(--p-ratio));
+  --p-elevation: calc(
+    -1 * var(--z) * var(--p-slab-size) * var(--p-size-unit) * var(--p-ratio)
+  );
   grid-column: calc(1 + var(--x));
   grid-row: calc(1 + var(--y));
   position: relative;
   width: calc(var(--p-size-unit) * var(--p-tile-size));
   height: calc(var(--p-size-unit) * var(--p-tile-size));
   transform: translate(var(--p-elevation), var(--p-elevation));
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2);
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2);
+}
+
+.react-isometric-tile.debug > .floor {
+  border: 1px solid green;
+  background: white;
 }
 
 .react-isometric-tile > .floor {
   box-sizing: border-box;
   position: absolute;
-  border: 1px solid green;
   width: calc(var(--p-size-unit) * var(--p-tile-size));
   height: calc(var(--p-size-unit) * var(--p-tile-size));
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
+}
+
+.react-isometric-tile.debug > .wall {
   background: white;
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
 }
 
 .react-isometric-tile > .wall {
   box-sizing: border-box;
   position: absolute;
-  background: white;
+}
+
+.react-isometric-tile.debug > .wall.left {
+  border: 1px solid red;
 }
 
 .react-isometric-tile > .wall.left {
-  border: 1px solid red;
   width: calc(var(--p-size-unit) * var(--p-tile-size));
-  height: calc(var(--p-size-unit) * var(--p-slab-size) * var(--p-left-z) * var(--p-ratio));
-  transform: translateY(calc(var(--p-size-unit) * var(--p-tile-size))) skewX(45deg);
+  height: calc(
+    var(--p-size-unit) * var(--p-slab-size) * var(--p-left-z) * var(--p-ratio)
+  );
+  transform: translateY(calc(var(--p-size-unit) * var(--p-tile-size)))
+    skewX(45deg);
   transform-origin: right top;
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2 + 2);
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2 + 2);
+}
+
+.react-isometric-tile.debug > .wall.right {
+  border: 1px solid blue;
 }
 
 .react-isometric-tile > .wall.right {
-  border: 1px solid blue;
   height: calc(var(--p-size-unit) * var(--p-tile-size));
-  width: calc(var(--p-size-unit) * var(--p-slab-size) * var(--p-right-z) * var(--p-ratio));
-  transform: translateX(calc(var(--p-size-unit) * var(--p-tile-size))) skewY(45deg);
+  width: calc(
+    var(--p-size-unit) * var(--p-slab-size) * var(--p-right-z) * var(--p-ratio)
+  );
+  transform: translateX(calc(var(--p-size-unit) * var(--p-tile-size)))
+    skewY(45deg);
   transform-origin: left top;
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2 + 1);
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2 + 1);
 }
 
 .react-isometric-tile .textures-group {
@@ -53,63 +73,93 @@
   position: relative;
   transform: rotateZ(-45deg) scale(var(--p-ratio));
   width: calc(var(--p-size-unit) * var(--p-tile-size));
-  height: calc(var(--p-size-unit) * (var(--p-tile-size) ));
+  height: calc(var(--p-size-unit) * (var(--p-tile-size)));
   --p-inverse-ratio: calc(1.24266482568174);
 }
 
 .react-isometric-tile .textures-group .floor {
   position: absolute;
-  left: calc(var(--p-size-unit) * -1 * (var(--p-margin-left) + var(--p-tile-size) / 2) / var(--p-ratio) + 1px);
+  left: calc(
+    var(--p-size-unit) * -1 * (var(--p-margin-left) + var(--p-tile-size) / 2) /
+      var(--p-ratio) + 1px
+  );
   right: calc(var(--p-size-unit) * var(--p-margin-right) / var(--p-ratio));
-  top: calc(-1 * var(--p-size-unit) * var(--p-margin-top) / var(--p-ratio)  + 1px);
-  bottom: calc(-1 * var(--p-size-unit) * var(--p-margin-bottom) / var(--p-ratio));
+  top: calc(
+    -1 * var(--p-size-unit) * var(--p-margin-top) / var(--p-ratio) + 1px
+  );
+  bottom: calc(
+    -1 * var(--p-size-unit) * var(--p-margin-bottom) / var(--p-ratio)
+  );
   transform-origin: center center;
   transform: scale(calc(1 / var(--p-ratio))) scaleY(2);
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2 + 4);
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2 + 4);
 }
 
 .react-isometric-tile .textures-group .top {
   position: absolute;
-  top: calc(var(--p-size-unit) * ( var(--p-tile-size)   ) / var(--p-ratio) - 1px);
+  top: calc(var(--p-size-unit) * (var(--p-tile-size)) / var(--p-ratio) - 1px);
   transform: scale(calc(1 / var(--p-ratio))) scaleY(2);
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
 }
 
 .react-isometric-tile .textures-group .top.left {
-  left: calc(var(--p-size-unit) * -1 * ( var(--p-tile-size) / 2 ) / var(--p-ratio) - 1px);
+  left: calc(
+    var(--p-size-unit) * -1 * (var(--p-tile-size) / 2) / var(--p-ratio) - 1px
+  );
 }
 
 .react-isometric-tile .textures-group .top.right {
-  right: calc(var(--p-size-unit) * -1 * ( var(--p-tile-size) / 2 ) / var(--p-ratio) - 1px);
+  right: calc(
+    var(--p-size-unit) * -1 * (var(--p-tile-size) / 2) / var(--p-ratio) - 1px
+  );
 }
 
 .react-isometric-tile .textures-group .middle {
   position: absolute;
-  top: calc(var(--p-size-unit) * ( var(--p-tile-size)   ) / var(--p-ratio) +  var(--p-size-unit) * (var(--p-slab-size)) * var(--wall-index) * var(--p-ratio) - 1px);
+  top: calc(
+    var(--p-size-unit) * (var(--p-tile-size)) / var(--p-ratio) +
+      var(--p-size-unit) * (var(--p-slab-size)) * var(--wall-index) *
+      var(--p-ratio) - 1px
+  );
   transform: scale(calc(1 / var(--p-ratio))) scaleY(2);
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
 }
 
 .react-isometric-tile .textures-group .middle.left {
-  left: calc(var(--p-size-unit) * -1 * ( var(--p-tile-size) / 2 ) / var(--p-ratio) - 1px);
+  left: calc(
+    var(--p-size-unit) * -1 * (var(--p-tile-size) / 2) / var(--p-ratio) - 1px
+  );
 }
 
 .react-isometric-tile .textures-group .middle.right {
-  right: calc(var(--p-size-unit) * -1 * ( var(--p-tile-size) / 2 ) / var(--p-ratio) - 1px);
+  right: calc(
+    var(--p-size-unit) * -1 * (var(--p-tile-size) / 2) / var(--p-ratio) - 1px
+  );
 }
 
 .react-isometric-tile .textures-group .bottom {
   transform: scale(calc(1 / var(--p-ratio))) scaleY(2);
   position: absolute;
-  z-index: calc( (var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
+  z-index: calc((var(--x) + var(--y) * var(--p-tile-size)) / 2 + 3);
 }
 
 .react-isometric-tile .textures-group .bottom.left {
-  top: calc( var(--p-size-unit) * ( var(--p-tile-size)   ) / var(--p-ratio) +  var(--p-size-unit) * var(--p-slab-size) * var(--p-left-z) * var(--p-ratio));
-  left: calc(var(--p-size-unit) * -1 * ( var(--p-tile-size) / 2 ) / var(--p-ratio) - 1px);
+  top: calc(
+    var(--p-size-unit) * (var(--p-tile-size)) / var(--p-ratio) +
+      var(--p-size-unit) * var(--p-slab-size) * var(--p-left-z) * var(--p-ratio)
+  );
+  left: calc(
+    var(--p-size-unit) * -1 * (var(--p-tile-size) / 2) / var(--p-ratio) - 1px
+  );
 }
 
 .react-isometric-tile .textures-group .bottom.right {
-  top: calc( var(--p-size-unit) * ( var(--p-tile-size)   ) / var(--p-ratio) +  var(--p-size-unit) * var(--p-slab-size) * var(--p-right-z) * var(--p-ratio));
-  right: calc(var(--p-size-unit) * -1 * ( var(--p-tile-size) / 2 ) / var(--p-ratio) - 1px);
+  top: calc(
+    var(--p-size-unit) * (var(--p-tile-size)) / var(--p-ratio) +
+      var(--p-size-unit) * var(--p-slab-size) * var(--p-right-z) *
+      var(--p-ratio)
+  );
+  right: calc(
+    var(--p-size-unit) * -1 * (var(--p-tile-size) / 2) / var(--p-ratio) - 1px
+  );
 }
